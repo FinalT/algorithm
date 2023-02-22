@@ -17,9 +17,27 @@ public class leet27 {
         return p;
     }
 
+//    优化，使用前后指针
+    public static int removeElementA(int[] nums,int val){
+        int left = 0;
+        int right = nums.length;
+        while (left<right){
+            if (nums[left]==val){
+                nums[left]=nums[right-1];
+                right--;
+            }else {
+                left++;
+            }
+        }
+        return left;
+    }
+
     public static void main(String[] args) {
         int[] nums = new int[]{3,2,2,3};
-        int i = removeElement(nums, 3);
-        System.out.println(i);
+        int a = removeElement(nums, 3);
+        int[] numsb = new int[]{3,2,2,3};
+        int b = removeElementA(numsb,3);
+        System.out.println("a=" + a);
+        System.out.println("b=" + b);
     }
 }
