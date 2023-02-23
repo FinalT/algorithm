@@ -1,9 +1,9 @@
 package day0223;
 
 public class leet5 {
-    public static int longestPalindrome(String s) {
+    public static String longestPalindrome(String s) {
         if (s==null||s.length()==0){
-            return 0;
+            return "";
         }
         StringBuffer str = new StringBuffer("#");
         for (int i = 0; i < s.length(); i++) {
@@ -15,6 +15,8 @@ public class leet5 {
         int C = -1; //中心
         int R = -1; //回文右边界再往右的一个位置
         int max = Integer.MIN_VALUE;
+        int left = 0;
+        int right= 0;
         for (int i = 0; i < str.length(); i++) {
 
             pArr[i] = R>i? Math.min(pArr[2*C-i],R-i):1;
@@ -33,15 +35,32 @@ public class leet5 {
                 C=i;
             }
             max = Math.max(max,pArr[i]);
+            if (max <= pArr[i]){
+                max = pArr[i];
+                left = i-max;
+                right = i+max;
+            }
         }
-        return max-1;
+
+
+        StringBuffer ans = new StringBuffer();
+
+        for (int i = left+1; i <right; i++) {
+            if (str.charAt(i)!='#')ans.append(str.charAt(i));
+        }
+
+//        String ans = str.substring(left+1,right).replace("#","");
+        return ans.toString();
     }
 
 
     public static void main(String[] args) {
-        String s = "abcbabcbaa";
-        int i = longestPalindrome(s);
-        System.out.println(i);
+        String s1 = "abcbabcbaa";
+        String s2 = "nabbb";
+        String a1 = longestPalindrome(s1);
+        String a2 = longestPalindrome(s2);
+        System.out.println(a1);
+        System.out.println(a2);
     }
 
 }
