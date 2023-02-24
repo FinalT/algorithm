@@ -9,7 +9,7 @@ public class leet83 {
         ListNode(int val) { this.val = val; }
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
-
+//已排序的链表
     public ListNode deleteDuplicates(ListNode head) {
         ListNode cur = head;
         while (cur!=null&&cur.next!=null){
