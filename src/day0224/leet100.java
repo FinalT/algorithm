@@ -32,5 +32,14 @@ public class leet100 {
         return isSameTree(p.left,q.left)&&isSameTree(p.right,q.right);
     }
 
+    public boolean isSameTreeB(TreeNode p, TreeNode q) {
+        return   p==null?q==null:
+                q!=null&&
+                (p.val==q.val)&&
+                isSameTree(p.left,q.left)&&
+                isSameTree(p.right,q.right);
+    }
+
+
 
 }
