@@ -5,7 +5,7 @@ import java.util.Arrays;
 //选择排序
 public class SelectSort {
     
-    public int[] sort(int[] arr){
+    public static int[] sort(int[] arr){
         for (int i = 0; i < arr.length-1; i++) {
             int min = i;
 
@@ -27,8 +27,7 @@ public class SelectSort {
 
     public static void main(String[] args) {
         int[] test1 = new int[]{5,4,6,5,1,3};
-        SelectSort selectSort = new SelectSort();
-        selectSort.sort(test1);
+        sort(test1);
         System.out.println(Arrays.toString(test1));
     }
 }
