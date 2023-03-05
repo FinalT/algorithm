@@ -14,7 +14,6 @@ class ListNode {
 public class leet203 {
 
     public ListNode removeElements(ListNode head, int val) {
-        if (head==null)return null;
 
         while (head!=null){
             if (head.val==val){
@@ -38,5 +37,17 @@ public class leet203 {
         }
 
         return head;
+    }
+
+    public ListNode removeElementsB(ListNode head, int val) {
+        if (head==null)return null;
+
+        head.next=removeElementsB(head.next,val);
+
+        if (head.val==val){
+            return head.next;
+        }else {
+            return head;
+        }
     }
 }
