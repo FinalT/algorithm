@@ -23,6 +23,14 @@ public class leet225 {
         queue2 = temp;
     }
 
+    public void pushb(int x){
+        int n = queue1.size();
+        queue1.offer(x);
+        for (int i = 0; i < n; i++) {
+            queue1.offer(queue1.poll());
+        }
+    }
+
     public int pop(){
         return queue1.poll();
     }
