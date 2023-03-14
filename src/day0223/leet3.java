@@ -36,6 +36,5 @@ public class leet3 {
             last[s.charAt(i)]=i;
         }
         return res;
-
     }
 }
